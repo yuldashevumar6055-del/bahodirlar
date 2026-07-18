@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BAHODIRLAR FITNESS</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+    font-family:'Montserrat',sans-serif;
+}
+
+html,body{
+    overflow-x:hidden;
+}
+
+body{
+    background:#000;
+    color:white;
+}
+
+section{
+    width:100%;
+    min-height:100vh;
+}
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+ul{
+    list-style:none;
+}
+
+img{
+    display:block;
+    max-width:100%;
+}
+
+button{
+    cursor:pointer;
+    font-family:inherit;
+}
+
+:root{
+    --gold:#d6a11b;
+    --gold2:#f5c64c;
+    --dark:#050505;
+    --gray:#bfbfbf;
+}
+
+
+/* HERO */
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.70)
+    ),
+    url("images/hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+}
+
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+    height:90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 clamp(15px,5vw,70px);
+
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(8px);
+
+    z-index:1000;
+    transition:.4s;
+}
+
+header.scrolled{
+    background:black;
+    box-shadow:0 5px 25px rgba(0,0,0,.5);
+}
+
+
+.logo img{
+    width:90px;
+}
+
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+
+nav a{
+    font-size:17px;
+    font-weight:600;
+    letter-spacing:.5px;
+
+    position:relative;
+    transition:.3s;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0%;
+    height:2px;
+
+    background:var(--gold);
+    transition:.35s;
+}
+
+nav a:hover{
+    color:var(--gold);
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+    text-align:center;
+}
+
+.hero-content h1{
+    font-size:clamp(42px,8vw,110px);
+    font-weight:900;
+    line-height:1;
+    text-transform:uppercase;
+}
+
+.hero-content span{
+    display:block;
+    color:var(--gold);
+}
+
+.hero-content p{
+    margin-top:30px;
+
+    font-size:25px;
+    font-weight:300;
+    letter-spacing:4px;
+
+    color:#ddd;
+}
+
+
+.main-btn{
+    margin-top:50px;
+
+    display:inline-block;
+
+    padding:18px 60px;
+
+    border:2px solid var(--gold);
+    background:var(--gold);
+
+    color:black;
+
+    font-size:20px;
+    font-weight:700;
+
+    border-radius:50px;
+
+    transition:.35s;
+}
+
+.main-btn:hover{
+    background:transparent;
+    color:white;
+    transform:translateY(-4px);
+}
+
+
+.scroll{
+    position:absolute;
+
+    bottom:30px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:40px;
+
+    animation:down 2s infinite;
+
+    color:var(--gold);
+}
+
+
+@keyframes down{
+
+0%,100%{
+    transform:translate(-50%,0);
+}
+
+50%{
+    transform:translate(-50%,15px);
+}
+
+}
+
+
+/* GENERAL */
+
+.container{
+    width:min(1300px,90%);
+    margin:auto;
+}
+
+
+.title{
+    text-align:center;
+
+    font-size:clamp(32px,5vw,55px);
+
+    font-weight:800;
+
+    margin-bottom:60px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+}
+
+
+.about,
+.trainers,
+.programs,
+.prices,
+.contacts{
+
+    padding:120px 0;
+
+    background:#0b0b0b;
+
+}
+
+
+/* ABOUT */
+
+.about-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+
+.about-image{
+
+    height:500px;
+
+    background:#1d1d1d;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+
+.about-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+.about-text{
+
+    font-size:18px;
+
+    line-height:2;
+
+    color:#d9d9d9;
+
+}
+
+
+/* CARDS */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+    gap:35px;
+
+}
+
+
+.card{
+
+    background:#131313;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:var(--gold);
+
+    box-shadow:0 20px 50px rgba(214,161,27,.18);
+
+}
+
+
+.card-image{
+
+    width:100%;
+
+    height:420px;
+
+    overflow:hidden;
+
+    background:#222;
+
+}
+
+
+.card-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:contain;
+
+}
+
+
+.card h3,
+.card p{
+
+    padding:0 30px;
+
+}
+
+
+.card h3{
+
+    margin:25px 0 20px;
+
+    font-size:28px;
+
+    color:var(--gold);
+
+}
+
+
+.card p{
+
+    padding-bottom:30px;
+
+    color:#d5d5d5;
+
+    line-height:1.9;
+
+}
+
+
+/* PRICES */
+
+.price-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+.price{
+
+    background:#141414;
+
+    padding:45px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.35s;
+
+}
+
+
+.price:hover{
+
+    transform:scale(1.04);
+
+    border-color:var(--gold);
+
+}
+
+
+.price-number{
+
+    font-size:55px;
+
+    font-weight:800;
+
+    color:var(--gold);
+
+    margin:30px 0;
+
+}
+
+
+/* CONTACT */
+
+.contact-box{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:60px;
+
+}
+
+
+.form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:25px;
+
+}
+
+
+.form input,
+.form textarea{
+
+    background:#171717;
+
+    border:none;
+
+    color:white;
+
+    border-radius:10px;
+
+    outline:none;
+
+}
+
+
+.form input{
+
+    height:60px;
+
+    padding:0 20px;
+
+}
+
+
+.form textarea{
+
+    height:220px;
+
+    padding:20px;
+
+    resize:none;
+
+}
+
+
+.form button{
+
+    height:60px;
+
+    background:var(--gold);
+
+    border:none;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    border-radius:10px;
+
+}
+
+
+.map{
+
+    background:#1c1c1c;
+
+    border-radius:20px;
+
+    min-height:500px;
+
+}
+
+
+footer{
+
+    padding:35px;
+
+    text-align:center;
+
+    background:black;
+
+    color:#999;
+
+}
+
+
+/* MOBILE MENU */
+
+.menu-btn{
+
+    display:none;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+}
+
+
+@media(max-width:992px){
+
+    nav{
+
+        gap:20px;
+
+    }
+
+    .hero-content h1{
+
+        font-size:70px;
+
+    }
+
+
+    .about-grid{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .cards{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .price-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .contact-box{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+
+@media(max-width:768px){
+
+    header{
+
+        height:80px;
+
+        padding:0 20px;
+
+    }
+
+
+    .logo img{
+
+        width:65px;
+
+    }
+
+
+    nav{
+
+        position:fixed;
+
+        top:80px;
+
+        right:-100%;
+
+        width:260px;
+
+        height:calc(100vh - 80px);
+
+        background:#111;
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        padding-top:40px;
+
+        gap:30px;
+
+        transition:.4s;
+
+    }
+
+
+    nav.active{
+
+        right:0;
+
+    }
+
+
+    .menu-btn{
+
+        display:block;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:48px;
+
+    }
+
+
+    .hero-content p{
+
+        font-size:18px;
+
+        letter-spacing:2px;
+
+    }
+
+
+    .cards{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .title{
+
+        font-size:38px;
+
+    }
+
+}
+
+
+
+@media(max-width:480px){
+
+    header{
+
+        height:70px;
+
+    }
+
+
+    .hero-content h1{
+
+        font-size:38px;
+
+    }
+
+}
+.price button{
+
+    padding:15px 45px;
+
+    border:none;
+
+    background:var(--gold);
+
+    color:black;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    transition:.3s;
+
+}
+
+
+.price button:hover{
+
+    transform:translateY(-4px);
+
+    background:var(--gold2);
+
+}
+.price ul{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo span{
+
+    font-size:24px;
+
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header id="header">
+
+    <div class="logo">
+    <img src="images/logo.png">
+    <span>BAHODIRLAR GYM</span>
+</div>
+
+    <nav>
+
+        <a href="#home">Bosh sahifa</a>
+
+        <a href="#about">Biz haqimizda</a>
+
+        <a href="#trainers">Trenerlar</a>
+
+        <a href="#programs">Dasturlar</a>
+
+        <a href="#prices">Narxlar</a>
+
+        <a href="#contacts">Bog'lanish uchun</a>
+
+    </nav>
+    <div class="menu-btn" onclick="toggleMenu()">
+    ☰
+</div>
+
+</header>
+
+
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>
+
+            <span>BAHODIRLAR</span>
+
+            FITNESS
+
+        </h1>
+
+        <p>
+
+            YOUR BODY • YOUR POWER • YOUR FUTURE
+
+        </p>
+
+        <a href="#about" class="main-btn">
+
+            Boshlash
+
+        </a>
+
+    </div>
+
+    <div class="scroll">
+
+        ↓
+
+    </div>
+
+</section>
+
+
+
+<section class="about" id="about">
+
+    <div class="container">
+
+        <h2 class="title">
+
+            BIZ HAQIMIZDA
+
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="about-image">
+    <img src="images/hero.png" alt="Bahodirlar Fitness">
+</div>
+
+            <div class="about-text">
+              <p>BAHODIRLAR GYM 🏋️</p>
+<p>O'zgarish bugundan boshlanadi!</p>
+💪 Massa yig'ish | Ozish | Funksional mashg'ulotlar
+<p>🔥 Professional yondashuv</p>
+📩 Ro'yxatdan o'tish uchun telefon raqamlar: <p>+998 88 999 99 71 ; +998 97 117 50 55</p>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="trainers" id="trainers">
+
+<div class="container">
+
+<h2 class="title">
+
+Trenerlar
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-image">
+    <img src="images/trainer1.png" alt="Trainer 1">
+</div>
+
+<h3>
+
+Trener 1
+
+</h3>
+
+<p>
+
+Alimov Dostonbek - 18 yillik tajriba va bilimga ega trener. 
+Har qanday turdagi trenirovkalar: vazin tashlash; vazin yig'ish; bel va mushak sohalaridagi ogriqlarni yoqotish.
+Sizga tog'ri texnika, o'zingizga mos individual dastur, motivatsiya: har qadamda yoningizda, kamroq xato va ko'proq natija.
+
+
+</p>
+
+</div>
+
+<div class="card">
+
+    <div class="card-image">
+    <img src="images/trainer2.jpg">
+</div>
+
+<h3>
+
+Тренер 2
+
+</h3>
+
+<p>
+
+Komilov Muhammad -
+
+
+8 yildan ortiq fitness tajribasiga ega murabbiy. Andijon viloyati armrestling federatsiyasi prezidenti va faol sportchi.
+
+💪 Kuch mashqlari
+🏋️ Mushak massasini oshirish
+🔥 Individual trening dasturlari
+⚡ To‘g‘ri texnika va samarali yondashuv
+
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-image">
+    <img src="images/trainer3.jpg">
+</div>
+
+<h3>
+
+Тренер 3
+
+</h3>
+
+<p>
+
+Andijonbayev Muhammadamin - 
+
+Boks sporti bo‘yicha tajribali murabbiy. Sport ovqatlanishi va qo‘shimchalar haqida chuqur bilimga ega.
+
+🥊 Boks va kuch mashg‘ulotlari
+💪 Jismoniy tayyorgarlikni oshirish
+🥗 Sport qo‘shimchalari bo‘yicha maslahatlar
+🔥 Maqsadga mos trening va ovqatlanish yondashuvi
+
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="programs" id="programs">
+
+<div class="container">
+
+<h2 class="title">
+
+Dasturlar
+
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-image"></div>
+
+<h3>
+
+Vazin yig'ish
+
+</h3>
+
+<p>
+
+Mushak massasini oshirish dasturi
+
+Mushak massasini oshirish dasturi mushak hajmi, kuch va umumiy jismoniy ko‘rinishni yaxshilashni istaganlar uchun mo‘ljallangan. Dastur ilmiy asoslangan mashg‘ulotlar, to‘g‘ri ovqatlanish va sifatli tiklanish tamoyillariga asoslanadi.
+
+Dasturga quyidagilar kiradi:
+
+💪 Haftasiga 5 kunlik mashg‘ulot rejasi.
+📈 Mushaklarni bosqichma-bosqich rivojlantirish.
+🏋️ Barcha mushak guruhlari uchun samarali mashqlar.
+🍗 Ovqatlanish va kaloriya bo‘yicha tavsiyalar.
+😴 Tiklanish va uyqu bo‘yicha tavsiyalar.
+
+Kimlar uchun?
+
+Yangi boshlovchilar.
+Mushak massasini oshirishni istagan sportchilar.
+Vazn yig‘ishda qiynalayotganlar.
+Kuch va jismoniy ko‘rinishini yaxshilashni istaganlar.
+
+Natijada siz:
+
+Mushak massasini oshirasiz.
+Kuch ko‘rsatkichlaringizni yaxshilaysiz.
+Chiroyli va proporsional tana tuzilishiga erishasiz.
+To‘g‘ri mashq qilish odatini shakllantirasiz.
+
+Eslatma: Eng yaxshi natijaga erishish uchun mashg‘ulotlarni muntazam bajarish, to‘g‘ri ovqatlanish va yetarlicha dam olish muhimdir.
+
+💥 Maqsadimiz — sizga kuchli, sog‘lom va estetik tana qurishda yordam berish!
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-image"></div>
+
+<h3>
+
+Vazin yo'qotish
+
+</h3>
+
+<p>
+
+Vazn yo‘qotish dasturi
+
+Vazn yo‘qotish dasturi ortiqcha vazndan xalos bo‘lish, tana yog‘ini kamaytirish va sog‘lom turmush tarzini shakllantirishni istaganlar uchun mo‘ljallangan. Dastur samarali mashg‘ulotlar, muvozanatli ovqatlanish va muntazam jismoniy faollikka asoslanadi.
+
+Dasturga quyidagilar kiradi:
+
+🔥 Yog‘ yoqishga qaratilgan mashg‘ulotlar.
+🏃 Kardio va kuch mashqlarining samarali uyg‘unligi.
+🥗 To‘g‘ri ovqatlanish bo‘yicha tavsiyalar.
+📊 Natijalarni kuzatish va yuklamani bosqichma-bosqich oshirish.
+💧 Suv iste'moli hamda tiklanish bo‘yicha tavsiyalar.
+
+Kimlar uchun?
+
+Ortiqcha vazndan xalos bo‘lishni istaganlar.
+Tana yog‘i foizini kamaytirishni maqsad qilganlar.
+Sog‘lom va faol hayot tarzini boshlamoqchi bo‘lganlar.
+Jismoniy chidamliligini oshirishni istaganlar.
+
+Natijada siz:
+
+Tana vazningizni kamaytirasiz.
+Tana yog‘i miqdorini kamaytirasiz.
+Chidamlilik va energiyangizni oshirasiz.
+Chiroyli va sog‘lom qomatga erishasiz.
+Sog‘lom odatlarni shakllantirasiz.
+
+Eslatma:Eng yaxshi natijaga erishish uchun mashg‘ulotlarni muntazam bajarish, to‘g‘ri ovqatlanish va yetarli dam olish muhimdir.
+
+🔥 Maqsadimiz — sizga sog‘lom, baquvvat va o‘zingizga ishonchli hayot sari qadam tashlashda yordam berish!**
+
+
+</p>
+
+</div>
+
+<div class="card">
+
+<div class="card-image"></div>
+
+<h3>
+
+Funksional mashg'ulotlar
+
+</h3>
+
+<p>
+
+Funksional mashg'ulotlar dasturi
+
+Funksional mashg'ulotlar dasturi kundalik hayotdagi harakatlarni yengillashtirish, kuch, chidamlilik, muvozanat va harakatchanlikni rivojlantirish uchun mo'ljallangan. Mashg'ulotlar butun tanani birgalikda ishlashga o'rgatadi va umumiy jismoniy tayyorgarlikni oshiradi.
+
+Dasturga quyidagilar kiradi:
+- Butun tana uchun funksional mashqlar.
+- Kuch, tezkorlik va chidamlilikni rivojlantirish.
+- Muvozanat va koordinatsiyani yaxshilash.
+- Bo'g'imlar harakatchanligi va mushaklarning moslashuvchanligini oshirish.
+- Bosqichma-bosqich yuklamani oshirish.
+
+Kimlar uchun?
+- Kundalik jismoniy holatini yaxshilashni istaganlar.
+- Faol va sog'lom turmush tarzini olib borishni xohlovchilar.
+- Sport natijalarini oshirishni maqsad qilganlar.
+- Har qanday tayyorgarlik darajasidagi insonlar.
+
+Natijada siz:
+- Kuch va chidamlilikni oshirasiz.
+- Muvozanat va koordinatsiyani yaxshilaysiz.
+- Harakat erkinligi va moslashuvchanlikni rivojlantirasiz.
+- Kundalik faoliyatni osonroq bajara olasiz.
+- Sog'lom va baquvvat tanaga ega bo'lasiz.
+
+Eslatma: Mashg'ulotlarni muntazam bajarish va to'g'ri tiklanish eng yaxshi natijaga erishishning muhim omillaridir.
+
+Maqsadimiz — sizni kuchliroq, chaqqonroq va har qanday jismoniy vazifaga tayyor qilish!
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="prices" id="prices">
+
+<div class="container">
+
+<h2 class="title">
+
+Narxlar
+
+</h2>
+
+<div class="price-grid">
+
+<div class="price">
+
+<h3>
+
+Standart(kun ora)
+
+</h3>
+
+<div class="price-number">
+
+400,000 so'm
+
+</div>
+
+<ul>
+
+<li>Haftada 4 kunlik trenirovka</li>
+
+<li>Trener maslaxtlari</li>
+
+<li>Barmanning xizmati</li>
+
+<li></li>
+
+</ul>
+
+<button>
+
+Подробнее
+
+</button>
+
+</div>
+
+<div class="price">
+
+<h3>
+
+Premium (har kuni)
+
+</h3>
+
+<div class="price-number">
+
+500,000 so'm
+
+</div>
+
+<ul>
+
+<li>Har kunlik trenirovka</li>
+
+<li>Trenerning maslaxatlari</li>
+
+<li>Barmanning xizmati</li>
+
+<li></li>
+
+</ul>
+
+<button>
+
+Подробнее
+
+</button>
+
+</div>
+
+<div class="price">
+
+<h3>
+
+VIP
+
+</h3>
+
+<div class="price-number">
+
+1,000,000 so'm
+
+</div>
+
+<ul>
+
+<li>Описание</li>
+
+<li>Описание</li>
+
+<li>Описание</li>
+
+<li>Описание</li>
+
+</ul>
+
+<button>
+
+Подробнее
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<section class="contacts" id="contacts">
+
+<div class="container">
+
+<h2 class="title">
+
+КОНТАКТЫ
+
+</h2>
+
+<div class="contact-box">
+
+<div class="form">
+
+<input type="text" placeholder="Ismingiz">
+
+<input type="email" placeholder="Email">
+
+<input type="tel" placeholder="Telefon raqamingiz">
+
+<textarea placeholder="Sizning habaringiz"></textarea>
+
+<button>
+
+Jo'natish
+
+</button>
+
+</div>
+
+<div class="map">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<footer>
+
+© 2026 BAHODIRLAR FITNESS
+
+</footer>
+
+
+
+<script>
+
+const header=document.getElementById("header");
+
+window.addEventListener("scroll",()=>{
+
+if(window.scrollY>80){
+
+header.classList.add("scrolled");
+
+}else{
+
+header.classList.remove("scrolled");
+
+}
+
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+
+anchor.addEventListener("click",function(e){
+
+e.preventDefault();
+
+document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+function toggleMenu(){
+
+document.querySelector("nav").classList.toggle("active");
+
+}
+document.querySelectorAll("nav a").forEach(link=>{
+
+link.addEventListener("click",()=>{
+
+document.querySelector("nav").classList.remove("active");
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
